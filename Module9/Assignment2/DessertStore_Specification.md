@@ -2,7 +2,30 @@
 ### Overview
 This application and its code models the inventory and sales for a Dessert Store chain of several stores, kiosks, or "carts" (small mobile dessert stores).
 
-### How a Dessert Store Works
+### Table of Contents
+- [How a Dessert Store Works](#howItWorks)
+- [Dessert Store Fields](#fields): Names, descriptions and details for all DessertStore fields
+   - [.name](#.name): Name of the dessert store instance
+   - [.appleIce](#.appleIce): Quantity of apple ice in the inventory
+   - [.bananaIce](#.bananaIce): Quantity of banana ice in the inventory
+   - [.cones](#.cones): Quantity of cones in the inventory
+   - [.appleDessertSales](#.appleDessertSales): Total number of apple dessert sales
+   - [.bananaDessertSales](#.bananaDessertSales): Total number of banana dessert sales
+- [Dessert Store Methods](#methods): Instance methods for the DessertStore
+   - [Constructor](#constructor): Creating DessertStore instances
+   - [.addInventory()](#.addInventory): Method to add items to a dessert store's inventory
+   - [.sellAppleDessert()](#.sellAppleDesserts): Method used to sell "n" appleDesserts 
+   - [.sellBananaDessert()](#.sellBananaDesserts): Method used to sell "n" bananaDesserts
+   - [.toString()](#.toString): Override of the default Java toString method for displaying a dessert store
+- [Static Methods](#StaticMethods): Static Methods
+   - [totalDessertsSold()](#.totalDessertsSold): Total desserts sold for a given dessert store
+   - [salesDistributionPercentage()](#.salesDistributionPercentage): Apple/Banana Sales as a percentage of total sales
+- [Testing](#Testing): Test code requirements
+   - [Testing the constructor](#test_constructor): Test the construction of a dessert store object
+   - [Testing the sale of an apple dessert](#test_appleSale): Test the sale of apple desserts
+- [Explanatory Client Code](#client): Code that demonstrates the functionality of the DessertStore   
+
+### <a name="howItWorks"></a>How a Dessert Store Works
 - A single Dessert Store sells "appleDesserts" and "bananaDesserts"
 - In order to sell desserts a dessert store must have sufficient inventory for the supplies necessary to make and sell a singe dessert.
  
@@ -19,9 +42,10 @@ The following defines and describes what is required to make a dessert store
 - Each DessertStore has its own inventory of cones, apple ice, and banana ice
 - Each DessertStore tracks its own sales of apple desserts and banana desserts
 
-## DessertStore Fields
-#### DessertStore .name
+## <a name="fields"></a>DessertStore Fields
+#### <a name=".name"></a>DessertStore .name
 The name of any single dessert store must be specified in order to construct an instance of a DessertStore object.  The name is a single, string public field that can be accessed direclty using aDessertStore.name in the case that our DessertStore object is "aDessertStore".
+
 Field Name | Data Type | Description
 -----------|-----------|-------------
 ***.name***|`String`|The name of the single dessert store instance.  For example: "Port Angeles Downtown"
@@ -31,29 +55,29 @@ Each dessert store has its own inventory of cones, apple ice and banana ice.  To
 
 Inventory Item | Data Type | Description
 ---------------|-----------|------------
-***.cones*** | `int` | Number of cones the store currently has on hand
-***.appleIce***| `int`| Number of units of apple ice the store currently has on hand
-***.bananaIce***| `int`| Number of units of banana ice the store currently has on hand
+***<a name=".cones"></a>.cones*** | `int` | Number of cones the store currently has on hand
+***<a name=".appleIce"></a>.appleIce***| `int`| Number of units of apple ice the store currently has on hand
+***<a name=".bananaIce"></a>.bananaIce***| `int`| Number of units of banana ice the store currently has on hand
 
 #### DessertStore sales
 Each dessert store keeps track of sales for apple desserts and banana desserts separately using two public integer fields.  The following flields are used to track sales and are public integer fields of the DessertStore and may be implemented with field names defined by the developer.
 
 Sales Item | Data Type | Description
 ---------------|-----------|------------
-***.appleDessertSales*** | `int` | Quantity of apple desserts sold by the individual dessert store
-***.bananaDessertSales***| `int`| Quantity of banana desserts sold by the individual dessert store
+***<a name=".appleDessertSales"></a>.appleDessertSales*** | `int` | Quantity of apple desserts sold by the individual dessert store
+***<a name=".bananaDessertSales"></a>.bananaDessertSales***| `int`| Quantity of banana desserts sold by the individual dessert store
 
-## Dessert Store Methods
+## <a name="methods"></a>Dessert Store Methods
 The following instance methods are available to any instance of a DessertStore object or are used to construct a DessertStore.
 
-### Constructor - Constructing DessertStore objects
+### <a name="constructor"></a>Constructor - Constructing DessertStore objects
 In order to construct a DessertStore object the constructor will require only the name of the store we are going to construct.  When a new DessertStore is created, its name is set and all inventory and sales amounts are initialized to 0.
 
 Method Name | Arguments | Description
 ------------|-----------|------------
 ***DessertStore***|`String`  name|Create an instance of a DessertStore with the supplied name with all fields
 
-### Adding Items to the Inventory
+### <a name=".addInventory"></a>Adding Items to the Inventory
 In order to add items to a DessertStore's inventory, use the following pubic method.  The method addInventory will allow for the addition of apple ice, banana ice, cones or all three and will return nothing.
 
 Method Name | Arguments | Description
@@ -63,13 +87,13 @@ Method Name | Arguments | Description
 ## Selling Desserts
 In order to sell a dessert, the dessert store must make the dessert from one unit of ice that corrosponds to the flavor of dessert and one cone.  For example, to make an apple dessert the dessert store must have one unit of apple ice and one cone. If either the ice or the cone are missing, the dessert store cannot sell the dessert.
 
-### Methods for selling desserts
+### Methods to support selling desserts
 The dessert store class has two methods for selling desserts.  Each method accepts an integer value representing the desired quantity to sell.  Each method returns an integer indicating how many of the desired amount were able to be sold. The methods will not make any substitutions and will only sell desserts if the inventory items allow for the dessert type to be sold.
 ***Method Declarations***
 Method Name | Return Value | Arguments
 ------------|--------------|----------
-***sellAppleDesserts***|`int` - the number actually sold| `int` n - desired quantity to sell
-***sellBananaDesserts***|`int` - the number actually sold|`int` n - desired quantity to sell
+***<a name=".sellAppleDesserts"></a>sellAppleDesserts***|`int` - the number actually sold| `int` n - desired quantity to sell
+***<a name=".sellBananaDesserts"></a>sellBananaDesserts***|`int` - the number actually sold|`int` n - desired quantity to sell
 
 #### Each method must perform the following actions: ####
 1. Determine how many of the desired quantity n that can be sold
@@ -82,41 +106,43 @@ Method Name | Return Value | Arguments
 -- Add to appleDessertsSold (or whatever you named the apple sales field)
 3. Return that number of actual sales as an integer.
 
-## Displaying a DessertStore's state 
+## <a name=".toString"></a>Displaying a DessertStore's state 
 In order to display a DessertStore's state including its name, inventory amounts and sales amounts we must override the `toString()` method in Java.
 
 ***Use this format:*** 
-[<name>: apple/banana/cones inventory: <appleIce>/<bananaIce>/<cones>; sales: <apple sales>/<banana sales>]
+[`<name>`: apple/banana/cones inventory: `<appleIce>`/`<bananaIce>`/`<cones>`; sales: `<apple sales>`/`<banana sales>`]
+
+***Examples***
 ```
 [So East Branch: apple/banana/cones inventory: 20/50/370; sales: 100/130]
 [Main Branch: apple/banana/cones inventory: 25/23/60; sales: 10/12]
 ```
 
-## Public Static methods that work on DessertStore objects
+## <a name="StaticMethods"></a>Public Static methods that work on DessertStore objects
 The following methods will exist within the DessertStore class but are designed to be used when we already have an instance of a DessertStore and want to find out information about an individual DessertStore.  To use these methods, pass in a specific instance of a DessertStore "ds".
 
-### Total Desserts Sold
+### <a name=".totalDessertsSold"></a>Total Desserts Sold
 Method to return the total number of desserts sold for the given DessertStore.
 
 Method Name|Return Value|Argument|Description
 -----------|------------|--------|---------------------
 ***totalDessertsSold***|`int` total desserts sold|`DessertStore` ds|Returns the combined sales of apple and banana desserts sold by the DessertStore "ds"
 
-### Sales Distribution Percentage
+### <a name=".saleDistribution"></a>Sales Distribution Percentage
 Method to compute and return the apple and banana sales as a percent of total sales.
 
 Method Name|Return Value|Argument|Description
 -----------|------------|--------|---------------------
 ***saleDistributionPercentage***|`double[]` returned array `[0]` = apple sales as percent returned array `[1]` = banana sales as percent| `DessertStore` ds|Compute and return apple sales and banana sales as a percentage of total sales.
 
-# Necessary Tests
+# <a name="Testing"></a>Necessary Tests
 Test methods must be developed to test the code for the DessertStore class before it can be safely used.  Implement the following necessary tests.
 
-## Test the Constructor
+## <a name="test_constructor"></a>Test the Constructor
 ***Name:*** `test_DessertStoreConstructor()`
 ***Description:*** Tests the construction of a DessertStore and validates that the name of the DessertStore gets set and all inventory and sales fields are set to 0.
 
-## Test the selling of Apple Desserts 
+## <a name="test_appleSale"></a>Test the selling of Apple Desserts 
 ***Name:*** `test_sellAppleDesserts()`
 ***Description:*** Tests the sale of apple desserts by making sure inventory gets added to the store before selling and that after selling, the correct inventories are adjusted by the specified amounts listed in the details for the sellAppleDesserts method.  Make sure the method returns the correct number of items that ***can*** be sold, as limited by inventory.  Make sure that the number of items actually sold is added to sales and subtracted from the correct inventories.
 ***Test Cases:*** Make sure that the following cases get tested at a minimum:
@@ -124,7 +150,7 @@ Test methods must be developed to test the code for the DessertStore class befor
 2. When there is not enough inventory to sell the full number requested
 
 
-## Explanatory Client Code ##
+## <a name="client"></a>Explanatory Client Code ##
 The following client code uses the intended DessertStore software.  It shows how the software will be used and explains the model.  This client code and test code can be called from DessertStore main() during development.
 ```
 //  This client code gives an example and explanations of how the DessertStore class will be used
