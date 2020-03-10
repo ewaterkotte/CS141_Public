@@ -128,7 +128,7 @@ Method Name|Return Value|Argument|Description
 -----------|------------|--------|---------------------
 ***totalDessertsSold***|`int` total desserts sold|`DessertStore` ds|Returns the combined sales of apple and banana desserts sold by the DessertStore "ds"
 
-### <a name=".saleDistribution"></a>Sales Distribution Percentage
+### <a name=".salesDistributionPercentage"></a>Sales Distribution Percentage
 Method to compute and return the apple and banana sales as a percent of total sales.
 
 Method Name|Return Value|Argument|Description
