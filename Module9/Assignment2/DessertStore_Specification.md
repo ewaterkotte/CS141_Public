@@ -89,7 +89,9 @@ In order to sell a dessert, the dessert store must make the dessert from one uni
 
 ### Methods to support selling desserts
 The dessert store class has two methods for selling desserts.  Each method accepts an integer value representing the desired quantity to sell.  Each method returns an integer indicating how many of the desired amount were able to be sold. The methods will not make any substitutions and will only sell desserts if the inventory items allow for the dessert type to be sold.
+
 ***Method Declarations***
+
 Method Name | Return Value | Arguments
 ------------|--------------|----------
 ***<a name=".sellAppleDesserts"></a>sellAppleDesserts***|`int` - the number actually sold| `int` n - desired quantity to sell
